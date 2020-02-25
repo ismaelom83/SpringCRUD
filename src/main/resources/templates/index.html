@@ -9,7 +9,9 @@
 </head>
 <body>
 		<div class="container mt-4">
+			<h1 class="mb-2">Ismal Heras CRUD</h1>
 			<a th:href="@{/new}" class="btn btn-primary mb-2">Nuevo</a>
+			<a th:href="@{/listar}" class="btn btn-success mb-2 listar">Listar</a>
 		<table class="table">
 			<thead>
 				<tr>
@@ -25,8 +27,8 @@
 					<td th:text="${persona.nombre}"></td>
 					<td th:text="${persona.telefono}"></td>
 					<td>
-						<a class="btn btn-warning">Editar</a>
-						<a class="btn btn-danger">Eliminar</a>
+						<a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
+						<a th:href="@{/borrar/}+${persona.id}" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
