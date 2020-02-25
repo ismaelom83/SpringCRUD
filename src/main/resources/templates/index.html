@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 		<div class="container mt-4">
@@ -28,11 +29,15 @@
 					<td th:text="${persona.telefono}"></td>
 					<td>
 						<a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
-						<a th:href="@{/borrar/}+${persona.id}" class="btn btn-danger">Eliminar</a>
+						<a th:onclick="eliminar([[${persona.id}]])" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="js/funciones.js"></script>
 </body>
 </html>

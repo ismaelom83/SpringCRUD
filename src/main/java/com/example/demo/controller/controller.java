@@ -27,23 +27,29 @@ public class controller {
 		modelo.addAttribute("personas", personas);
 		return "index";
 	}
-	
+
 	@GetMapping("/new")
-	public String agregar(Model modelo){
+	public String agregar(Model modelo) {
 		modelo.addAttribute("persona", new Persona());
 		return "form";
 	}
-	
+
 	@PostMapping("/save")
 	public String save(@Valid Persona p, Model modelo) {
 		service.save(p);
 		return "redirect:/listar";
 	}
-	
-	@GetMapping("/editar/{id}") 
+
+	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable int id, Model modelo) {
-		Optional<Persona>persona=service.listarID(id);
+		Optional<Persona> persona = service.listarID(id);
 		modelo.addAttribute("persona", persona);
 		return "form";
+	}
+
+	@GetMapping("/eliminar/{id}")
+	public String delete(Model modelo, @PathVariable int id) {
+		service.delete(id);
+         return  "redirect:/listar";
 	}
 }
